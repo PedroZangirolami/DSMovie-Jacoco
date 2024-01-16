@@ -21,6 +21,7 @@ public class MovieService {
 	@Autowired
 	private MovieRepository repository;
 
+
 	@Transactional(readOnly = true)
 	public Page<MovieDTO> findAll(String title, Pageable pageable) {
 		Page<MovieEntity> result = repository.searchByTitle(title, pageable);
