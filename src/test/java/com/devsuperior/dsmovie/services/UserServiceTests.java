@@ -46,8 +46,8 @@ public class UserServiceTests {
 		userNameNonExists = "bob@gmail.com";
 
 		UserEntity userLogged = UserFactory.createCustomUserEntity(userNameExists);
-
 		userDetailsProjection = UserDetailsFactory.createCustomAdminClientUser(userNameExists);
+
 		Mockito.when(repository.findByUsername(userNameExists)).thenReturn(Optional.of(userLogged));
 		Mockito.when(repository.findByUsername(userNameNonExists)).thenReturn(Optional.empty());
 

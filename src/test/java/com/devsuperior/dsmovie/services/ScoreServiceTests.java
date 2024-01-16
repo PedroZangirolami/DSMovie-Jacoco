@@ -61,6 +61,7 @@ public class ScoreServiceTests {
 
 		Mockito.when(movieRepository.findById(existingMovieId)).thenReturn(Optional.of(movieEntity));
 		Mockito.when(movieRepository.findById(nomExistingMovieId)).thenReturn(Optional.empty());
+
 		Mockito.when(movieRepository.save(movieEntity)).thenReturn(movieEntity);
 		Mockito.when(repository.saveAndFlush(score)).thenReturn(score);
 	}
@@ -68,7 +69,6 @@ public class ScoreServiceTests {
 	@Test
 	public void saveScoreShouldReturnMovieDTO() {
 		Mockito.when(userService.authenticated()).thenReturn(userLogged);
-
 		MovieDTO result = service.saveScore(scoreDTO);
 
 		Assertions.assertNotNull(result);
